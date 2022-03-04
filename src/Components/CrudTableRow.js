@@ -14,7 +14,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{title}</td>
       <td>{auth}</td>
       <td>{edition}</td>
-      <td>
+      <td className="table-actions">
         <button className="btn-edit" onClick={handleEdit}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
