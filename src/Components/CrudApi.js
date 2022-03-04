@@ -110,19 +110,19 @@ const CrudApi = () => {
     <div className="crud-api">
       <HashRouter>
         <header>
-          <h2>CRUD API con rutas</h2>
+          <h1>API de libreria con React JS</h1>
           <nav>
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Books
+              Libros
             </NavLink>
             <NavLink
               to="/add"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Add
+              Agregar
             </NavLink>
           </nav>
         </header>
@@ -131,7 +131,6 @@ const CrudApi = () => {
             path="/"
             element={
               <>
-                <h2>Library API with React JS</h2>
                 <article>
                   {loading && <Loader />}
                   {error && (
