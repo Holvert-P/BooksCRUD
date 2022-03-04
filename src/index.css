@@ -2,6 +2,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: sans-serif;
+  color: #fff;
 }
 
 *,
@@ -11,7 +12,9 @@ html {
   padding: 0;
   box-sizing: inherit;
 }
-
+body {
+  background-color: rgb(39, 90, 75);
+}
 h1,
 nav {
   padding: 1rem 0;
@@ -132,7 +135,7 @@ td {
 
 .btn-delete,
 input[type="reset"] {
-  background-color: #fd2549;
+  background-color: #fa1d42;
   color: #fff;
 }
 .btn-edit,
@@ -158,18 +161,13 @@ input[type="submit"] {
   width: 4rem;
   height: auto;
 }
-
-@media screen and (max-width: 768px) {
-  .table-crud {
-    font-size: 0.85rem;
-  }
-  /* .btn-delete,
+.table-crud {
+  font-size: 0.85rem;
+}
+@media screen and (min-width: 768px) {
+  .btn-delete,
   .btn-edit {
-    margin: 0.25rem 0;
+    padding: 0.3rem;
+    margin: 0 0.5rem;
   }
-  .btn-delete svg,
-  .btn-edit svg {
-    /* width: 1rem;
-    height: 1rem; 
-  }*/
 }
