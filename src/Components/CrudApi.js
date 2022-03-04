@@ -113,7 +113,7 @@ const CrudApi = () => {
           <h2>CRUD API con rutas</h2>
           <nav>
             <NavLink
-              to="/books"
+              to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               Books
@@ -126,7 +126,6 @@ const CrudApi = () => {
             </NavLink>
           </nav>
         </header>
-        {/* <Loader /> */}
         <Routes>
           <Route
             path="/"
