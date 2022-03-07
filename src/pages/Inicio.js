@@ -1,11 +1,10 @@
 import React from "react";
-
+import CrudApi from "../Components/CrudApi";
 const Inicio = () => {
   return (
-    <div>
-      <h2>Pagina de Inicio</h2>
-      <h2>React Router - Conceptos Basicos</h2>
-    </div>
+    <>
+      <CrudApi />
+    </>
   );
 };
 

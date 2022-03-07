@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import crudContext from "../context/CrudApiContext";
 const initailForm = {
   title: "",
   auth: "",
   edition: "",
-  id: null,
+  _id: null,
 };
 
-const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
-  const [form, setForm] = useState(initailForm),
-    navigate = useNavigate();
-
+const CrudForm = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState(initailForm);
+  const { createData, updateData, dataToEdit, setDataToEdit } =
+    useContext(crudContext);
   useEffect(() => {
     if (dataToEdit) {
       setForm(dataToEdit);
     } else {
       setForm(initailForm);
+      navigate("/add");
     }
   }, [dataToEdit]);
 
@@ -35,7 +37,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       return;
     }
 
-    if (form.id === null) {
+    if (form._id === null) {
       createData(form);
     } else {
       updateData(form);
@@ -51,8 +53,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   };
 
   return (
-    <div>
-      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
+    <section className="crud-form">
+      <h3 className="crud-table-title ">
+        {dataToEdit ? "Editar libro" : "Agregar nuevo libro"}
+      </h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -78,7 +82,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <input type="submit" value="Enviar" />
         <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
-    </div>
+    </section>
   );
 };
 

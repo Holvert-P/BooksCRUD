@@ -1,8 +1,11 @@
-import CrudApi from "./Components/CrudApi";
+import Navbar from "./Components/Navbar";
+import { CrudProvider } from "./context/CrudApiContext";
 const App = () => {
   return (
     <>
-      <CrudApi />
+      <CrudProvider>
+        <Navbar />
+      </CrudProvider>
     </>
   );
 };

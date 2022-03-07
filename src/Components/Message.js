@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import crudContext from "../context/CrudApiContext";
 
-const Message = ({ msg, bgColor, setError }) => {
+const Message = ({ msg, bgColor }) => {
+  const { setError } = useContext(crudContext);
   let styles = {
     padding: "2rem  4rem",
     textAlign: "center",
@@ -9,9 +11,7 @@ const Message = ({ msg, bgColor, setError }) => {
     backgroundColor: bgColor,
     position: "fixed",
     top: "50%",
-    // botton: 0,
     left: "50%",
-    // right: 0,
     transform: "translate(-50%,-50%)",
     borderRadius: ".25rem",
   };

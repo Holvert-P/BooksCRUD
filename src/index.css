@@ -2,9 +2,11 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: sans-serif;
-  color: #fff;
 }
-
+:root {
+  --first-color: #c0b097;
+  --second-color: #65758d;
+}
 *,
 *::after,
 *::before {
@@ -12,20 +14,14 @@ html {
   padding: 0;
   box-sizing: inherit;
 }
-body {
-  background-color: rgb(39, 90, 75);
+a {
+  color: #fff;
 }
 h1,
 nav {
   padding: 1rem 0;
 }
 
-nav a {
-  background-color: rgb(219, 219, 219);
-  padding: 0.25rem 1rem;
-  border-radius: 0.25rem;
-  color: #fff;
-}
 .Error {
   font-family: "Anton", sans-serif;
   background-color: #fff;
@@ -58,25 +54,24 @@ nav a {
 a {
   margin: 0 1rem;
   text-decoration: none;
+  cursor: pointer;
 }
 li {
-  margin: 1rem 0;
-  width: 100%;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  cursor: pointer;
 }
-
+svg {
+  pointer-events: none;
+}
 .active {
   font-weight: bold;
-  color: #7072e2;
+  color: #c09269;
 }
 .crud-api {
   min-height: 95vh;
   display: flex;
   flex-direction: column;
-
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 input[type="text"] {
@@ -117,9 +112,10 @@ input[type="submit"],
 input[type="reset"] {
   padding: 0.5rem 1rem;
 }
-form {
+form,
+.crud-form {
   margin-bottom: 1rem;
-  padding: 2rem;
+  padding: 0 1rem;
 }
 
 table {
@@ -156,7 +152,7 @@ input[type="submit"] {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: #fd2549;
+  background-color: #65758d;
   color: #fff;
   font-weight: bold;
 }
@@ -171,6 +167,57 @@ input[type="submit"] {
 .table-actions {
   width: 6rem;
 }
+
+/* navbar */
+.navbar {
+  height: 4rem;
+  background-color: #65758d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-size: 2rem;
+}
+.navbar-container {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  justify-content: space-between;
+  background-color: #65758d;
+  padding: 2rem 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+}
+.navbar-container.isVisible {
+  opacity: 1;
+  pointer-events: initial;
+}
+.navbar-container .list-menu {
+  flex-direction: column;
+}
+.list {
+  display: flex;
+  align-items: center;
+}
+.crud-table-title {
+  color: #c09269;
+  margin: 1rem 0;
+}
+thead {
+  color: #65758d;
+}
+.btn-navbar {
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .btn-delete,
   .btn-edit {
@@ -179,8 +226,22 @@ input[type="submit"] {
   }
   .crud-api {
     width: 100%;
+    padding: 0 4rem;
   }
   header {
     width: 100%;
+  }
+  .btn-navbar {
+    display: none;
+  }
+  .navbar-container {
+    display: flex;
+    position: initial;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: initial;
+  }
+  .navbar-container .list-menu {
+    flex-direction: row;
   }
 }

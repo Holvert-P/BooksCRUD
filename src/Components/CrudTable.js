@@ -1,29 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import crudContext from "../context/CrudApiContext";
 import CrudTableRow from "./CrudTableRow";
 
-const CrudTable = ({ data, setDataToEdit, deleteData }) => {
+const CrudTable = () => {
+  const { db: data, isAuth } = useContext(crudContext);
   return (
     <div>
-      <h3>Tabla de Datos</h3>
-      <table className="table-crud">
+      <h3 className="crud-table-title">Tabla de Datos</h3>
+      <table>
         <thead>
           <tr>
             <th>Titulo</th>
             <th>Autor</th>
             <th>Edicion</th>
-            <th>Acciones</th>
+            {isAuth && <th>Acciones</th>}
           </tr>
         </thead>
         <tbody>
           {data.length > 0 ? (
-            data.map((el) => (
-              <CrudTableRow
-                key={el.id}
-                el={el}
-                setDataToEdit={setDataToEdit}
-                deleteData={deleteData}
-              />
-            ))
+            data.map((el) => <CrudTableRow key={el._id} el={el} />)
           ) : (
             <tr>
               <td colSpan="4" style={{ textAlign: "center" }}>

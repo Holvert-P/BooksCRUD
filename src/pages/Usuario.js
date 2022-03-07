@@ -1,14 +1,19 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import crudContext from "../context/CrudApiContext";
 
 const Usuario = () => {
-  let { username } = useParams();
+  const { user } = useContext(crudContext);
+  const { email, username } = user;
   return (
     <>
       <h3>Perfil de usuario</h3>
       <p>
         Nombre del usuario
         <b>{username}</b>
+      </p>
+      <p>
+        correo electronico
+        <b>{email}</b>
       </p>
     </>
   );
